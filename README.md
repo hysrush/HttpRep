@@ -14,13 +14,13 @@
 
 ### 요청
 ex)
-GET https://www.zerocho.com HTTP/1.1
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) ...
-Upgrade-Insecure-Requests: 1
+- GET https://www.naver.com HTTP/1.1
+- User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) ...
+- Upgrade-Insecure-Requests: 1
 
 (본문 없음)
 
-- 첫 줄은 시작줄입니다. GET 은 HTTP 메서드, https://www.zerocho.com 은 주소, HTTP/1.1은 HTTP 버젼입니다.
+- 첫 줄은 시작줄입니다. GET 은 HTTP 메서드, https://www.naver.com 은 주소, HTTP/1.1은 HTTP 버젼입니다.
 - 즉, 요청 메시지의 시작줄은 *메서드 주소 버전 으로 구성된다.
 
 -두번째 줄 부터는 헤더이다. 요청에 대한 정보를 담고 있으며, User-Agent, Upgrade-Insecure-Requests 등등이 헤더에 해당된다.
@@ -30,19 +30,30 @@ Upgrade-Insecure-Requests: 1
 ### 응답
 
 ex)
+```html
+> HTTP/1.1 200 OK
+> Connection: keep-alive
+> Content-Encoding: gzip
+> Content-Length: 35653
+> Content-Type: text/html
 
-HTTP/1.1 200 OK
-Connection: keep-alive
-Content-Encoding: gzip
-Content-Length: 35653
-Content-Type: text/html;
+> <!DOCTYPE html><html lang="ko" data-reactroot=""><head>
+```
 
-<!DOCTYPE html><html lang="ko" data-reactroot=""><head>
-<title...>
-          
+        
 - 요청과 마찬가지로 시작줄, 헤더, 본문으로 구성되어있다.
 - 첫줄은   버전 상태코드 상태메세지로 구성되어있다. 
-- 두번째
+- 두번째 줄 부터는 헤더이며, 응답에 대한 정보를 담고있다.
+- 응답에는 보통 본문이 있다. 보통 데이터를 요청하고, 응답메세지에는 요청한 데이터를 담아서 보내주기 때문
+- 응답메세지에 html이 담겨있고, 이 html을 받아 브라우저가 화면에 렌더링 한다.
 
+### HTTP 메서드란?
+
+위의 GET/https://www.naver.com HTTP/1.1 에서.  인터넷 주소창에 주소를 치는 행위는, 해당 주소에 대해 GET 요청을 하는것이다.  
+크롬 주소창에 WWW.NAVER.COM 이라고 치면 GET WWW.NAVER.COM HTTP/1.1 요청을 보내는 것과 같다  이런식으로, 요청을 할 때 주소와 함께 HTTP
+메서드를 같이 보낼수 있다, 자주쓰는 메서드는 GET,POST,PUT,PATCH,DELETE 정도가 있으며(OPTIONS,HEAD,CONNECT,TRACE 등도 있다.)
+          
+
+          
           
           
