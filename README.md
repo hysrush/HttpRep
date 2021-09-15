@@ -91,5 +91,7 @@ Set-Cookie: mykey=myvalue; expires=Mon, 17-Jul-2017 16:06:00 GMT; Max-Age=314496
 - 원래 호스트가 다르게 되면 아무 요청에 대해서 허가해주고 응답해주면 안되기 때문에,  
 - 요청에 대해 허가가 없이는 정보를 전달해주지 않는다.  그렇기 때문에 응답 헤더로 Access-Control-Allow-Origin을 통해 허용하고, Access-Control-Allow-Method로 어떤 요청 GET인지 POST인지 요청을 서버에서 작성 한 후에 정보를 응답으로 보내 줄 수있다.
 
+*헤더의 종류에 대한 자료. https://www.zerocho.com/category/HTTP/post/5b3ba2d0b3dabd001b53b9dbhttps://www.zerocho.com/category/HTTP/post/5b3ba2d0b3dabd001b53b9db
+
           
           
