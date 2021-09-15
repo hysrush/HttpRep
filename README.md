@@ -51,9 +51,45 @@ ex)
 
 위의 GET/https://www.naver.com HTTP/1.1 에서.  인터넷 주소창에 주소를 치는 행위는, 해당 주소에 대해 GET 요청을 하는것이다.  
 크롬 주소창에 WWW.NAVER.COM 이라고 치면 GET WWW.NAVER.COM HTTP/1.1 요청을 보내는 것과 같다  이런식으로, 요청을 할 때 주소와 함께 HTTP
-메서드를 같이 보낼수 있다, 자주쓰는 메서드는 GET,POST,PUT,PATCH,DELETE 정도가 있으며(OPTIONS,HEAD,CONNECT,TRACE 등도 있다.)
-          
+메서드를 같이 보낼수 있으며  자주쓰는 메서드는 GET,POST,PUT,PATCH,DELETE 정도가 있으며(OPTIONS,HEAD,CONNECT,TRACE 등도 있다.)
 
-          
+### HTTP 헤더란?
+
+- HTTP 헤더는 클라이언트와 서버가 요청 또는 응답으로 부가적인 정보를 전송할 수 있도록 해줍니다.  HTTP헤더는 대소문자를 구분하지 않는 이름과 콜론':' 다음에 오는 값으로 이루어져 있다. 값 앞에 붙은 빈 문자열은 무시된다.
+
+-헤더를 세부적으로 나누면 4가지로 구성되어있다.
+1) General header : 요청과 응답 모두에 적용되지만 바디에서 최종적으로 전송되는 데이터와는 관련이 없는 헤더.
+2) Request header : 페치 될 리소스나 클라이언트 자체에 대한 자세한 정보를 포함하는 헤더. (요청 헤더)
+3) Response header : 위치 또는 서버 자체에 대한 정보(이름, 버전 등 )과 같이 응답에 대한 부가적인 정보를 갖는 헤더(응답 헤더)
+4) Entity header : 콘텐츠 길이나 MIME 타입과 같이 엔티티 바디에 대한 자세한 정보를 포함하는 헤더.
+
+ex) 요청 헤더는 클라이언트 자체에 대한 자세한 정보를 포함한다.
+GET /home.html HTTP/1.1  
+Host: developer.mozilla.org  
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101 Firefox/50.0  
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8  
+Accept-Language: en-US,en;q=0.5  
+Accept-Encoding: gzip, deflate, br  
+
+
+- GET 요청 하겠으며, 호스트이름은 developer.mozilla.org 라는 정보를 제공한다, Accept는 MIME타입으로 표현되는 클라이언트가 이해 가능한 콘텐츠 타입이 무엇인지를 알려준다, 예를들어 텍스트, 이미지, HTML을 표기해 타입을 알려주는 역할을 한다.
+
+- 응답헤더는 HTTP 응답에서 사용될 수 있는 HTTP 헤더이다.  
+ex)  
+200 OK  
+Access-Control-Allow-Origin: *  
+Connection: Keep-Alive  
+Content-Encoding: gzip  
+Content-Type: text/html; charset=utf-8  
+Date: Mon, 18 Jul 2016 16:06:00 GMT  
+Etag: "c561c68d0ba92bbeb8b0f612a9199f722e3a621a"  
+Keep-Alive: timeout=5, max=997  
+Last-Modified: Mon, 18 Jul 2016 02:36:04 GMT  
+Server: Apache  
+Set-Cookie: mykey=myvalue; expires=Mon, 17-Jul-2017 16:06:00 GMT; Max-Age=31449600; Path=/; secure  
+
+- 원래 호스트가 다르게 되면 아무 요청에 대해서 허가해주고 응답해주면 안되기 때문에,  
+- 요청에 대해 허가가 없이는 정보를 전달해주지 않는다.  그렇기 때문에 응답 헤더로 Access-Control-Allow-Origin을 통해 허용하고, Access-Control-Allow-Method로 어떤 요청 GET인지 POST인지 요청을 서버에서 작성 한 후에 정보를 응답으로 보내 줄 수있다.
+
           
           
