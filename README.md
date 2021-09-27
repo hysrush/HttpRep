@@ -52,6 +52,12 @@ ex)
 위의 GET/https://www.naver.com HTTP/1.1 에서.  인터넷 주소창에 주소를 치는 행위는, 해당 주소에 대해 GET 요청을 하는것이다.  
 크롬 주소창에 WWW.NAVER.COM 이라고 치면 GET WWW.NAVER.COM HTTP/1.1 요청을 보내는 것과 같다  이런식으로, 요청을 할 때 주소와 함께 HTTP
 메서드를 같이 보낼수 있으며  자주쓰는 메서드는 GET,POST,PUT,PATCH,DELETE 정도가 있으며(OPTIONS,HEAD,CONNECT,TRACE 등도 있다.)
+- GET: 리소스 조회
+- POST : 요청데이터 처리, 주로 데이터 등록에 사용
+- PUT : 리소스 대체, 해당 리소스가 없으면 생성(데이터 덮어쓰기 등등..)
+- PATCH : 리소스를 일부만 변경
+- DELETE : 리소스 삭제
+
 
 ### HTTP 헤더란?
 
